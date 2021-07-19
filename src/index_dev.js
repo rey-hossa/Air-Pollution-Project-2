@@ -9,6 +9,6 @@ document.body.appendChild(wallpaper);
 */
 
 const hello = document.createElement('div');
-hello.innerHTML = 'Hello WebPack';
+hello.innerHTML = 'Hello Dev';
 hello.classList.add('hello');
 document.body.appendChild(hello);
