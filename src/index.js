@@ -17,7 +17,7 @@ document.body.appendChild(hello);
 async function aqiChecker(){
   try{
 
-    const response = await fetch("./netlify/functions/lambda");
+    const response = await fetch("./netlify/functions/lambda.js");
     const resJson = await response.json();
 
     //let city = document.getElementById("search").value;
