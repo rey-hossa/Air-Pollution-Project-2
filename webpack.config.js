@@ -9,7 +9,6 @@ module.exports = (env, argv) => {
     },
     output: {
       filename: 'bundle.js',
-      publicPath: 'http://localhost:8080/dist/',
       path: path.resolve(__dirname, 'dist')
     },
 
@@ -28,8 +27,9 @@ module.exports = (env, argv) => {
 
         {
           test: /\.(jpg|png)$/,
-          include : path.join(__dirname, 'images'),
-          loader  : 'url-loader?limit=30000&name=images/wallpaper.jpg'
+          use: {
+            loader: 'url-loader',
+          }
         },
 
         {

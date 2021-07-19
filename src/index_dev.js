@@ -1,12 +1,10 @@
 
 import './style.css';
 
-import image from '../images/wallpaper.jpg';
-
 
 const wallpaper = document.createElement('img');
 wallpaper.id = "wallpaper";
-wallpaper.src = image;
+wallpaper.src = "../images/wallpaper.jpg";
 document.body.appendChild(wallpaper);
 
 
