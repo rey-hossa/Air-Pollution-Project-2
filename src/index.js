@@ -17,14 +17,13 @@ document.body.appendChild(hello);
 async function aqiChecker(){
   try{
 
-    const response = await fetch("./netlify/functions/lambda.js");
-    const resJson = await response.json();
 
-    //let city = document.getElementById("search").value;
-    //let uri = "https://api.waqi.info/feed/" + city + "/?token=" + apiKey;
 
-    //const res = await fetch(uri);
-    //const resJson = await res.json();
+    let city = document.getElementById("search").value;
+    let uri = "https://api.waqi.info/feed/" + city + "/?token=" + apiKey;
+
+    const res = await fetch(uri);
+    const resJson = await res.json();
     const aqi = resJson.data.aqi;
     //console.log(aqi);
     index.innerHTML = "AQI: " + aqi ;
@@ -35,9 +34,19 @@ async function aqiChecker(){
   }
 }
 
+async function callLambdaFunction() {
+
+  const response = await fetch("./netlify/functions/lambda");
+  const data = await response.json();
+
+  console.log(response);
+}
+
+callLambdaFunction();
 
 
-//const apiKey = "d3fdee6489352a6599a5e2d8557718dcd34dbce7";
+
+const apiKey = "d3fdee6489352a6599a5e2d8557718dcd34dbce7";
 
 let enter = document.getElementById('enter');
 let search = document.getElementById('search');
