@@ -16,32 +16,25 @@ hello.classList.add('hello');
 document.body.appendChild(hello);
 */
 
-async function aqiChecker(){
+
+async function aqiChecker() {
+
   try{
-
-
     let city = document.getElementById("search").value;
-    //let uri = "https://api.waqi.info/feed/" + city + "/?token=" + apiKey;
 
-    callLambdaFunction(city);
+    //const response = await fetch("/.netlify/functions/lambda");
+    //const data = await response.json();
+    const results = await axios.get("/.netlify/functions/lambda?city="+city);
+    let aqi = results.data.data.aqi;
+    console.log(aqi);
 
+    index.innerHTML = "AQI: " + aqi ;
 
-
-  } catch (err){
-    console.error(err.message);
-    index.innerHTML = "The city you entered doesn't exist!" ;
-  }
+} catch (err){
+  console.error(err.message);
+  index.innerHTML = "The city you entered doesn't exist!" ;
 }
 
-async function callLambdaFunction(city) {
-
-  //const response = await fetch("/.netlify/functions/lambda");
-  //const data = await response.json();
-
-  const results = await axios.get("/.netlify/functions/lambda?city="+city);
-  let aqi = results.data.data.aqi;
-  console.log(aqi);
-  index.innerHTML = "AQI: " + aqi ;
 }
 
 
