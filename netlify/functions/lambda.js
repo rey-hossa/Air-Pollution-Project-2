@@ -8,8 +8,9 @@ exports.handler = async function (event, context) {
   async function aqi(){
     const res = await fetch(uri);
     const resJson = await res.json();
+    console.log(reJson);
     const aqi = resJson.data.aqi;
-    //console.log(aqi);
+    console.log(aqi);
     return aqi;
   }
   aqi();

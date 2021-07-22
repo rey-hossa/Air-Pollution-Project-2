@@ -21,7 +21,7 @@ async function aqiChecker(){
 
 
     let city = document.getElementById("search").value;
-    let uri = "https://api.waqi.info/feed/" + city + "/?token=" + apiKey;
+    //let uri = "https://api.waqi.info/feed/" + city + "/?token=" + apiKey;
 
     callLambdaFunction(city);
 
@@ -47,7 +47,7 @@ async function callLambdaFunction(city) {
 
 
 
-const apiKey = "d3fdee6489352a6599a5e2d8557718dcd34dbce7";
+//const apiKey = "d3fdee6489352a6599a5e2d8557718dcd34dbce7";
 
 let enter = document.getElementById('enter');
 let search = document.getElementById('search');
