@@ -23,9 +23,9 @@ async function aqiChecker(){
     let city = document.getElementById("search").value;
     //let uri = "https://api.waqi.info/feed/" + city + "/?token=" + apiKey;
 
-    callLambdaFunction(city);
+    let aqi = callLambdaFunction(city);
 
-    //index.innerHTML = "AQI: " + aqi ;
+    index.innerHTML = "AQI: " + aqi ;
 
   } catch (err){
     console.error(err.message);
@@ -39,8 +39,9 @@ async function callLambdaFunction(city) {
   //const data = await response.json();
 
   const results = await axios.get("/.netlify/functions/lambda?city="+city);
-
-  console.log(results.data.data);
+  let aqi = results.data.data.aqi;
+  console.log(aqi);
+  return aqi;
 }
 
 
