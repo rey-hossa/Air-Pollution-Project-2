@@ -10,14 +10,14 @@ exports.handler = async function (event, context) {
     const resJson = await res.json();
     const aqi = resJson.data.aqi;
     //console.log(aqi);
-
+    return aqi;
   }
-  aqi();
+  let prova = aqi();
 
 
   return {
     statusCode: 200,
-    body: JSON.stringify({message: `ciuppa ${city} api key: ${API_KEY} `})
+    body: JSON.stringify({message: `aqi ${prova} api key: ${API_KEY} `})
   }
 
 }
