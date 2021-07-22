@@ -9,17 +9,15 @@ exports.handler = async function (event, context) {
     const res = await fetch(uri);
     const resJson = await res.json();
 
-    console.log(reJson);
     const aqi = resJson.data.aqi;
-    console.log(aqi);
     return aqi;
   }
-  aqi();
+  let prova = aqi();
 
 
   return {
     statusCode: 200,
-    body: JSON.stringify({message: `uri: ${uri} `})
+    body: JSON.stringify({message: `aqi: ${prova} `})
   }
 
 }
