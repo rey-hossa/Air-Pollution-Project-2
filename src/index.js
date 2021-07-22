@@ -19,10 +19,11 @@ document.body.appendChild(hello);
 async function aqiChecker(){
   try{
 
-    callLambdaFunction();
 
     let city = document.getElementById("search").value;
     let uri = "https://api.waqi.info/feed/" + city + "/?token=" + apiKey;
+
+    callLambdaFunction(city);
 
     const res = await fetch(uri);
     const resJson = await res.json();
@@ -36,12 +37,12 @@ async function aqiChecker(){
   }
 }
 
-async function callLambdaFunction() {
+async function callLambdaFunction(city) {
 
   //const response = await fetch("/.netlify/functions/lambda");
   //const data = await response.json();
 
-  const results = await axios.get("/.netlify/functions/lambda?city='bologna'");
+  const results = await axios.get("/.netlify/functions/lambda?city="+city);
 
   console.log(results.data);
   console.log("funzione finita");
