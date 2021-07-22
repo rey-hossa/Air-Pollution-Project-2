@@ -7,7 +7,7 @@ exports.handler = async function (event, context) {
 
   let uri = "https://api.waqi.info/feed/" + city + "/?token=" + API_KEY;
 
-  let data = await axios.get(uri);
+  let data = axios.get(uri);
 
   const pass = (body) => {
     return {
