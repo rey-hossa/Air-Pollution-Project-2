@@ -4,13 +4,9 @@ exports.handler = async function (event, context) {
   const city = event.queryStringParameters.city;
 
   let uri = "https://api.waqi.info/feed/" + city + "/?token=" + API_KEY;
+  const res = await fetch(uri);
+  const resJson = await res.json();
 
-  async function aqi(){
-    const res = await fetch(uri);
-    const resJson = await res.json();
-    return reJson;
-  }
-  let data = aqi();
 
   const pass = (body) => {
     return {
@@ -19,7 +15,7 @@ exports.handler = async function (event, context) {
     }
   }
 
-  return pass(data);
+  return pass(resJson);
 
   /*
   return {
