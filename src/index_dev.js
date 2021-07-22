@@ -17,6 +17,8 @@ document.body.appendChild(hello);
 async function aqiChecker(){
   try{
 
+
+
     let city = document.getElementById("search").value;
     let uri = "https://api.waqi.info/feed/" + city + "/?token=" + apiKey;
 
@@ -31,6 +33,17 @@ async function aqiChecker(){
     index.innerHTML = "The city you entered doesn't exist!" ;
   }
 }
+
+async function callLambdaFunction() {
+
+  const response = await fetch("/.netlify/functions/lambda");
+  const data = await response.json();
+
+  console.log(response);
+  console.log("funzione finita");
+}
+
+callLambdaFunction();
 
 
 
