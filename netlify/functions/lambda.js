@@ -9,7 +9,7 @@ exports.handler = async function (event, context) {
     const res = await fetch(uri);
     const resJson = await res.json();
     const aqi = resJson.data.aqi;
-    console.log(aqi);
+    //console.log(aqi);
     return aqi;
   }
   aqi();
