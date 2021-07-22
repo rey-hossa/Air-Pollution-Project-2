@@ -45,7 +45,6 @@ async function callLambdaFunction(city) {
   const results = await axios.get("/.netlify/functions/lambda?city="+city);
 
   console.log(results.data);
-  console.log("funzione finita");
 }
 
 
