@@ -35,12 +35,12 @@ async function aqiChecker(){
 
 async function callLambdaFunction(city) {
 
-  const response = await fetch("/.netlify/functions/lambda");
-  const data = await response.json();
+  //const response = await fetch("/.netlify/functions/lambda");
+  //const data = await response.json();
 
-  //const results = await axios.get("/.netlify/functions/lambda?city="+city);
+  const results = await axios.get("/.netlify/functions/lambda?city="+city);
 
-  console.log(data);
+  console.log(results);
 }
 
 
