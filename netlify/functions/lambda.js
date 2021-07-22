@@ -1,13 +1,8 @@
-exports.handler = async event => {
-  const data = "ciuppa";
+exports.handler = async function (event, context) {
 
-
-  const pass = (body) => {
-    return {
-      statusCode: 200,
-      body: JSON.stringify(body)
-    }
+  return {
+    statusCode: 200,
+    body: JSON.stringify({message: "ciuppa"})
   }
 
-  return pass(data)
 }
