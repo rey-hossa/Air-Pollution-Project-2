@@ -12,12 +12,12 @@ exports.handler = async function (event, context) {
     console.log(aqi);
     return aqi;
   }
-  let prova = aqi();
+  aqi();
 
 
   return {
     statusCode: 200,
-    body: JSON.stringify({message: `aqi ${prova} api key: ${API_KEY} `})
+    body: JSON.stringify({message: `citta: ${city} api key: ${API_KEY} `})
   }
 
 }
