@@ -25,11 +25,7 @@ async function aqiChecker(){
 
     callLambdaFunction(city);
 
-    const res = await fetch(uri);
-    const resJson = await res.json();
-    const aqi = resJson.data.aqi;
-    //console.log(aqi);
-    index.innerHTML = "AQI: " + aqi ;
+    
 
   } catch (err){
     console.error(err.message);
