@@ -19,7 +19,7 @@ document.body.appendChild(hello);
 async function aqiChecker(){
   try{
 
-
+    callLambdaFunction();
 
     let city = document.getElementById("search").value;
     let uri = "https://api.waqi.info/feed/" + city + "/?token=" + apiKey;
@@ -47,7 +47,7 @@ async function callLambdaFunction() {
   console.log("funzione finita");
 }
 
-callLambdaFunction();
+
 
 
 
