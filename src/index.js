@@ -30,7 +30,7 @@ async function aqiChecker() {
 
     index.innerHTML = "AQI: " + aqi ;
 
-    if(aqi == "undefined"){
+    if(aqi == undefined){
       index.innerHTML = "The city you entered doesn't exist!" ;
     }
 
