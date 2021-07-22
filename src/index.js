@@ -1,6 +1,8 @@
 
 import './style.css';
 
+import axios from 'axios';
+
 /*
 const wallpaper = document.createElement('img');
 wallpaper.id = "wallpaper";
@@ -36,10 +38,12 @@ async function aqiChecker(){
 
 async function callLambdaFunction() {
 
-  const response = await fetch("/.netlify/functions/lambda");
-  const data = await response.json();
+  //const response = await fetch("/.netlify/functions/lambda");
+  //const data = await response.json();
 
-  console.log(response.data);
+  const results = await axios.get("/.netlify/functions/lambda");
+
+  console.log(results);
   console.log("funzione finita");
 }
 
