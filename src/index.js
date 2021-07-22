@@ -57,4 +57,3 @@ enter.addEventListener("click", aqiChecker );
 search.addEventListener("keyup", function(input){
   if (event.keyCode === 13) {enter.click();}
 });
-console.log("sdmslmk");
