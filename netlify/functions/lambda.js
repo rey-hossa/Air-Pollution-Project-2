@@ -6,14 +6,14 @@ exports.handler = async function (event, context) {
   let uri = "https://api.waqi.info/feed/" + city + "/?token=" + API_KEY;
 
   let aqi;
-  async function aqi (){
+  async function aqi(aqi){
     const res = await fetch(uri);
     const resJson = await res.json();
     aqi = resJson.data.aqi;
     //console.log(aqi);
   }
 
-  aqi();
+  aqi(aqi);
 
   return {
     statusCode: 200,
