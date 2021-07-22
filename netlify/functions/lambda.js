@@ -1,33 +1,25 @@
-import axios from 'axios';
-
 exports.handler = async function (event, context) {
 
   const API_KEY =  process.env.API_KEY;
   const city = event.queryStringParameters.city;
 
+  let uri = "https://api.waqi.info/feed/" + city + "/?token=" + API_KEY;
 
-  async function fetchApi (){
-    let uri = "https://api.waqi.info/feed/" + city + "/?token=" + API_KEY;
-    let response = await axios.get(uri);
-    return response;
+  async function aqi(){
+    const res = await fetch(uri);
+    const resJson = await res.json();
+    
+    console.log(reJson);
+    const aqi = resJson.data.aqi;
+    console.log(aqi);
+    return aqi;
   }
+  aqi();
 
-  let data = fetchApi();
 
-  const pass = (body) => {
-    return {
-      statusCode: 200,
-      body: JSON.stringify(body)
-    }
-  }
-
-  return pass(data);
-
-  /*
   return {
     statusCode: 200,
     body: JSON.stringify({message: `citta: ${city} api key: ${API_KEY} `})
   }
-  */
 
 }
