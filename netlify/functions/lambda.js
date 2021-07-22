@@ -1,12 +1,13 @@
+import axios from 'axios';
+
 exports.handler = async function (event, context) {
 
   const API_KEY =  process.env.API_KEY;
   const city = event.queryStringParameters.city;
 
   let uri = "https://api.waqi.info/feed/" + city + "/?token=" + API_KEY;
-  const res = await fetch(uri);
-  const resJson = await res.json();
 
+  let data = await axios.get(uri);
 
   const pass = (body) => {
     return {
@@ -15,7 +16,7 @@ exports.handler = async function (event, context) {
     }
   }
 
-  return pass(resJson);
+  return pass(data);
 
   /*
   return {
