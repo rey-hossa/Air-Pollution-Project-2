@@ -10,8 +10,9 @@ exports.handler = async function (event, context) {
     const resJson = await res.json();
     const aqi = resJson.data.aqi;
     //console.log(aqi);
-
   }
+
+  aqi();
 
   return {
     statusCode: 200,
