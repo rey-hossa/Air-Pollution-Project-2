@@ -5,17 +5,20 @@ exports.handler = async function (event, context) {
 
   let uri = "https://api.waqi.info/feed/" + city + "/?token=" + API_KEY;
 
+  const aqi;
+
   async function aqi (){
     const res = await fetch(uri);
     const resJson = await res.json();
-    const aqi = resJson.data.aqi;
+    aqi = resJson.data.aqi;
     //console.log(aqi);
-    index.innerHTML = "AQI: " + aqi ;
   }
+
+  aqi();
 
   return {
     statusCode: 200,
-    body: JSON.stringify({message: `ciuppa ${city} api key: ${API_KEY} `})
+    body: JSON.stringify({message: `${aqi} `})
   }
 
 }

@@ -25,7 +25,7 @@ async function aqiChecker(){
 
     callLambdaFunction(city);
 
-    
+    //index.innerHTML = "AQI: " + aqi ;
 
   } catch (err){
     console.error(err.message);
