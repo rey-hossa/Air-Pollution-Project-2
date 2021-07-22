@@ -5,7 +5,7 @@ exports.handler = async function (event, context) {
 
   let uri = "https://api.waqi.info/feed/" + city + "/?token=" + API_KEY;
 
-  const aqi;
+  let aqi;
 
   async function aqi (){
     const res = await fetch(uri);
