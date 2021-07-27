@@ -1,6 +1,5 @@
 
 import './style.css';
-
 import axios from 'axios';
 
 /*
@@ -8,12 +7,6 @@ const wallpaper = document.createElement('img');
 wallpaper.id = "wallpaper";
 wallpaper.src = "../images/wallpaper.jpg";
 document.body.appendChild(wallpaper);
-*/
-/*
-const hello = document.createElement('div');
-hello.innerHTML = 'Hello Dev';
-hello.classList.add('hello');
-document.body.appendChild(hello);
 */
 
 
@@ -28,10 +21,10 @@ async function aqiChecker() {
     let aqi = results.data.data.aqi;
     console.log(aqi);
 
-    index.innerHTML = "AQI: " + aqi ;
-
     if(aqi == undefined){
       index.innerHTML = "The city you entered doesn't exist!" ;
+    }else{
+      index.innerHTML = "AQI: " + aqi ;
     }
 
 } catch (err){
@@ -55,3 +48,20 @@ enter.addEventListener("click", aqiChecker );
 search.addEventListener("keyup", function(input){
   if (event.keyCode === 13) {enter.click();}
 });
+
+
+
+// Map creation
+
+// Leaflet Map Layer
+let OSM_URL = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+let OSM_ATTRIB = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+let osmLayer = L.tileLayer(OSM_URL, {attribution: OSM_ATTRIB});
+// Waqi Layer
+let WAQI_URL  = "https://tiles.waqi.info/tiles/usepa-aqi/{z}/{x}/{y}.png?token=_TOKEN_ID_";
+let WAQI_ATTR = 'Air Quality Tiles &copy; <a href="http://waqi.info">waqi.info</a>';
+let waqiLayer = L.tileLayer(WAQI_URL, {attribution: WAQI_ATTR});
+
+let map = L.map('map').setView([44.500017,11.328501], 11); // Map view coordinates
+map.addLayer(osmLayer);
+map.addLayer(waqiLayer);
