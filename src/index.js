@@ -119,7 +119,7 @@ info.addEventListener("mouseout",function(){
 // Map creation
 
 // Leaflet Map Layer
-let OSM_URL = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+let OSM_URL = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png//:splat 200!';
 let OSM_ATTRIB = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors';
 let osmLayer = L.tileLayer(OSM_URL, {attribution: OSM_ATTRIB});
 // Waqi Layer
