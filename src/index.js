@@ -27,6 +27,10 @@ async function aqiChecker() {
       index.innerHTML = "AQI: " + aqi ;
     }
 
+    //change map view
+    let latitude = resJson.data.city.geo[0];
+    let longitude = resJson.data.city.geo[1];
+    map.setView([latitude, longitude], 11);
     
     setIndexStatus(aqi);
 
