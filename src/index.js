@@ -27,6 +27,9 @@ async function aqiChecker() {
       index.innerHTML = "AQI: " + aqi ;
     }
 
+    
+    setIndexStatus(aqi);
+
 } catch (err){
   console.error(err.message);
   index.innerHTML = "The city you entered doesn't exist!" ;
