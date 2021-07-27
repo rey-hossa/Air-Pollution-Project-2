@@ -1,5 +1,6 @@
 
 const path = require('path');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = (env, argv) => {
   const entryPath = argv.mode === 'development' ? './src/index_dev.js' : './src/index.js'
@@ -16,6 +17,10 @@ module.exports = (env, argv) => {
       contentBase: './dist',
       open: true
     },
+
+    plugins: [
+      new Dotenv()
+    ],
 
     module: {
       rules: [

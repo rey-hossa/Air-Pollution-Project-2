@@ -1,27 +1,73 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
   <head>
     <meta charset="utf-8">
-    <title>Hello Webpack</title>
+    <title>Air Pollution Checker</s></title>
+
+    <meta name='viewport'  content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+
+    <!--
+    <link rel="stylesheet" href="../src/style.css">
+    <link rel="stylesheet" href="../fontawesome/css/all.min.css">
+    -->
+    <script src="https://kit.fontawesome.com/0dae2e916f.js" crossorigin="anonymous"></script>
+
+    <!-- Leaflet map -->
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@100;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
   </head>
+
   <body>
-    <img id="wallpaper" src="./wallpaper.jpg">
-    <div class="hello">
-      <span>Hello Dev</span>
+
+    <!-- Background image -->
+    <picture >
+      <source media='(max-width: 400px)'
+              srcset='../images/air-wallpaper-400.jpg'/>
+      <source media='(max-width: 600px)'
+              srcset='../images/air-wallpaper-600.jpg'/>
+      <source media='(max-width: 1024px)'
+              srcset="../images/air-wallpaper-1024.jpg"/>
+      <img id="wallpaper" src="../images/air-wallpaper.jpg" >
+    </picture>
+
+    <div class="air-pollution-section">
+
+      <h2>Air Quality Index In The World</h2>
+      <h3>Check air pollution in your city</h3>
 
       <div class="search-section">
         <input id="search" type="text"  placeholder="Search for a city" >
-        <button id="enter" type="button" >Enter</button>
+        <button id="enter" type="button" ><i class="fas fa-search"></i></button>
       </div>
 
       <div class="index-section">
         <p id="index">AQI: ...</p>
+        <p id="status" ></p>
+        <i id="info" class="fas fa-info-circle"></i>
+      </div>
+
+      <div id='map'></div>
+
+      <div id="information">
+        <h3>Health Implications</h3>
+        <p id="heathImplications"></p>
+        <br>
+        <h3>Cautionary Statement (for PM2.5)</h3>
+        <p id="cautionaryStatement"></p>
       </div>
 
     </div>
 
-    <script src = "bundle.js">
+    <script src="bundle.js"></script>
 
-    </script>
   </body>
+
 </html>

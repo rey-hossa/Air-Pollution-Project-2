@@ -4,24 +4,54 @@
   box-sizing: border-box;
 }
 
-.hello{
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+body{
 
-  color: lightgrey;
-  font-size: 80px;
 }
 
 #wallpaper{
-  position: absolute;
-  z-index: -2;
   width: 100%;
   height: 100vh;
+  position: absolute;
+  z-index: -1;
+}
 
+.air-pollution-section{
+  width: 45%;
+  height: 80vh;
+  margin-left: 35%;
+  border-radius: 2%;
+  background-color:rgba(255, 255, 255, 0.4);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 12px 16px #36363624;
+
+  position: relative;
+  top: 10vh;
+  padding-top: 7vh;
+  padding-bottom: 7vh;
+
+  color: white;
+
+}
+
+.air-pollution-section h2{
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.air-pollution-section h3{
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.search-section{
+  display: flex;
+  justify-content: space-between;
 }
 
 #search{
@@ -31,6 +61,7 @@
   border: none;
   outline: none;
   border-radius: 3px;
+  margin-right: 3px;
 }
 
 #enter{
@@ -43,7 +74,18 @@
   opacity: 0.5;
 }
 
-#index{
+#enter:hover{
+  cursor: pointer;
+  background-color:rgba(0, 0, 0, 0.9);
+  border-color: rgba(54, 54, 54, 0.9);
+}
+
+.index-section{
+  display: flex;
+  align-items: center;
+}
+
+#index,#status{
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   font-weight: 500;
@@ -51,7 +93,120 @@
   justify-content: center;
   align-items: center;
   padding: 5px;
+
   border-radius: 3px;
   background-color:rgba(0, 0, 0, 0.4);
   box-shadow: 0px 5px 8px #36363624;
+}
+
+#status{
+  display: none;
+  margin-left: 3px;
+}
+
+#info{
+  display: none;
+  color: black;
+  margin-left: 3px;
+  opacity: 0.1;
+}
+
+#info:hover{
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+#map{
+  height: 200px;
+  width: 400px;
+  border-radius: 2%;
+  box-shadow: 0px 8px 10px #36363624;
+}
+
+#information{
+  display: none;
+  background-color: black;
+  height: 200px;
+  width: 400px;
+  border-radius: 2%;
+  background-color:rgba(0, 0, 0, 0.5);
+  padding: 3px;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#information p{
+  font-size: 14px;
+}
+
+
+
+@media only screen and (max-width: 1024px) {   /* Tablet  */
+
+  .air-pollution-section{
+    width: 60%;
+    margin: auto;
+  }
+
+  #map,#information{
+    width: 80%;
+  }
+
+}
+
+@media only screen and (min-width: 701px) and (max-width: 800px) { .air-pollution-section{width: 70%;} }
+@media only screen and (min-width: 601px) and (max-width: 700px) { .air-pollution-section{width: 80%;} }
+
+@media only screen and (max-width: 600px) {
+
+  .air-pollution-section{
+    width: 80%;
+  }
+
+  .air-pollution-section h2{
+    font-size: 27px;
+  }
+
+  .air-pollution-section h3{
+    font-size: 16px;
+  }
+
+  #search{
+    height: 20px;
+    width: 170px;
+  }
+
+  #enter{
+    height: 20px;
+    width: 40px;
+  }
+
+  #index,#status{
+    font-size: 16px;
+  }
+
+}
+
+@media only screen and (max-width: 480px){  /* Mobile  */
+
+  .air-pollution-section{
+    width: 90%;
+    height: 92vh;
+    top: 4vh;
+  }
+
+  .air-pollution-section h2{
+    font-size: 24px;
+  }
+
+  #map,#information{
+    height: 230px;
+    width: 90%;
+    margin-top: 20px;
+  }
+
 }

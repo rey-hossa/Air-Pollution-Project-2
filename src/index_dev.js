@@ -34,7 +34,7 @@ async function aqiChecker(){
 
 
 
-const apiKey = "d3fdee6489352a6599a5e2d8557718dcd34dbce7";
+const apiKey = process.env.API_KEY; 
 
 let enter = document.getElementById('enter');
 let search = document.getElementById('search');
