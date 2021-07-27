@@ -6,3 +6,21 @@
   to = "http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css/:splat"
   status = 200
   force = true
+
+  [[redirects]]
+    from = "/feed/*"
+    to = "http://openstreetmap.org/copyright/:splat"
+    status = 200
+    force = true
+
+    [[redirects]]
+      from = "/feed/*"
+      to = "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png/:splat"
+      status = 200
+      force = true
+
+      [[redirects]]
+        from = "/feed/*"
+        to = "http://waqi.info/:splat"
+        status = 200
+        force = true
