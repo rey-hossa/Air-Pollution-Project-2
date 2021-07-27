@@ -35,6 +35,45 @@ async function aqiChecker() {
 }
 
 
+//set the status
+function  setIndexStatus(aqi){
+  status.style.display = "flex";
+  info.style.display = "flex";
+
+  if(aqi > 300){
+    status.style.backgroundColor = "#660000";
+    status.innerText = "Hazardous!" ;
+    heathImplications.innerText = "Health alert: everyone may experience more serious health effects";
+    cautionaryStatement.innerText = "Everyone should avoid all outdoor exertion";
+  } else if (aqi > 200){
+    status.style.backgroundColor = "#4d007d";
+    status.innerText = "Very unhealthy" ;
+    heathImplications.innerText = "Health warnings of emergency conditions. The entire population is more likely to be affected.";
+    cautionaryStatement.innerText = "Active children and adults, and people with respiratory disease, such as asthma, should avoid all outdoor exertion; everyone else, especially children, should limit outdoor exertion.";
+  } else if (aqi > 150){
+    status.style.backgroundColor = "#e30000";
+    status.innerText = "Unhealthy" ;
+    heathImplications.innerText = "Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects";
+    cautionaryStatement.innerText = "Active children and adults, and people with respiratory disease, such as asthma, should avoid prolonged outdoor exertion; everyone else, especially children, should limit prolonged outdoor exertion";
+  } else if (aqi > 100){
+    status.style.backgroundColor = "#e39000";
+    status.innerText = "Unhealthy for sensitive groups " ;
+    heathImplications.innerText = "Members of sensitive groups may experience health effects. The general public is not likely to be affected.";
+    cautionaryStatement.innerText = "Active children and adults, and people with respiratory disease, such as asthma, should limit prolonged outdoor exertion.";
+  }else if (aqi > 50){
+    status.style.backgroundColor = "#e3d800";
+    status.innerText = "Moderate " ;
+    heathImplications.innerText = "Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution.";
+    cautionaryStatement.innerText = "Active children and adults, and people with respiratory disease, such as asthma, should limit prolonged outdoor exertion.";
+  } else if (aqi > 0){
+    status.style.backgroundColor = "#0abf00";
+    status.innerText = "GOOD " ;
+    heathImplications.innerText = "Air quality is considered satisfactory, and air pollution poses little or no risk";
+    cautionaryStatement.innerText = "None";
+  } else {
+    errorLayout();
+  }
+}
 
 
 
