@@ -1,2 +1,8 @@
 [build]
   functions = "./netlify/functions"
+
+[[redirects]]
+  from = "/feed/*"
+  to = "http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css/:splat"
+  status = 200
+  force = true
