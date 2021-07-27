@@ -119,12 +119,12 @@ info.addEventListener("mouseout",function(){
 // Map creation
 
 // Leaflet Map Layer
-let OSM_URL = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png//:splat 200!';
-let OSM_ATTRIB = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+let OSM_URL = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png/:splat 200!';
+let OSM_ATTRIB = '&copy; <a href="http://openstreetmap.org/copyright/:splat 200!">OpenStreetMap</a> contributors';
 let osmLayer = L.tileLayer(OSM_URL, {attribution: OSM_ATTRIB});
 // Waqi Layer
 let WAQI_URL  = "https://tiles.waqi.info/tiles/usepa-aqi/{z}/{x}/{y}.png?token=_TOKEN_ID_";
-let WAQI_ATTR = 'Air Quality Tiles &copy; <a href="http://waqi.info">waqi.info</a>';
+let WAQI_ATTR = 'Air Quality Tiles &copy; <a href="http://waqi.info/:splat 200!">waqi.info</a>';
 let waqiLayer = L.tileLayer(WAQI_URL, {attribution: WAQI_ATTR});
 
 let map = L.map('map').setView([44.500017,11.328501], 11); // Map view coordinates
