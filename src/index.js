@@ -28,8 +28,8 @@ async function aqiChecker() {
     }
 
     //change map view
-    let latitude = results.data.city.geo[0];
-    let longitude = results.data.city.geo[1];
+    let latitude = results.data.data.city.geo[0];
+    let longitude = results.data.data.city.geo[1];
     map.setView([latitude, longitude], 11);
 
     setIndexStatus(aqi);
