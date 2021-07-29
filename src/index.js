@@ -55,6 +55,9 @@ async function setCurrentPostion(position){
     const results = await axios.get("/.netlify/functions/lambdaGeo?latitude=" + lat + "&longitude" + lon);
     let aqi = results.data.data.aqi;
 
+    console.log(results);
+    console.log(aqi);
+
     index.innerHTML = "AQI: " + aqi ;
 
     setIndexStatus(aqi);
@@ -98,6 +101,9 @@ function  setIndexStatus(aqi){
     status.style.backgroundColor = "#0abf00";
     status.innerText = "GOOD " ;
     heathImplications.innerText = "Air quality is considered satisfactory, and air pollution poses little or no risk";
+    cautionaryStatement.innerText = "None";
+  } else {
+    heathImplications.innerText = "None";
     cautionaryStatement.innerText = "None";
   }
 }
