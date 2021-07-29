@@ -2,13 +2,6 @@
 import './style.css';
 import axios from 'axios';
 
-/*
-const wallpaper = document.createElement('img');
-wallpaper.id = "wallpaper";
-wallpaper.src = "../images/wallpaper.jpg";
-document.body.appendChild(wallpaper);
-*/
-
 
 async function aqiChecker() {
 
@@ -105,12 +98,12 @@ function  setIndexStatus(aqi){
   } else {
     heathImplications.innerText = "None";
     cautionaryStatement.innerText = "None";
+    status.style.display = "none";
+    info.style.display = "none";
   }
 }
 
 
-
-//const apiKey = "d3fdee6489352a6599a5e2d8557718dcd34dbce7";
 
 let enter = document.getElementById('enter');
 let search = document.getElementById('search');

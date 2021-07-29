@@ -85,7 +85,10 @@ function  setIndexStatus(aqi){
     heathImplications.innerText = "Air quality is considered satisfactory, and air pollution poses little or no risk";
     cautionaryStatement.innerText = "None";
   } else {
-    errorLayout();
+    heathImplications.innerText = "None";
+    cautionaryStatement.innerText = "None";
+    status.style.display = "none";
+    info.style.display = "none";
   }
 }
 
