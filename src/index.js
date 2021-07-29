@@ -48,9 +48,6 @@ async function setCurrentPostion(position){
     const results = await axios.get("/.netlify/functions/lambdaGeo?latitude=" + lat + "&longitude=" + lon);
     let aqi = results.data.data.aqi;
 
-    console.log(results);
-    console.log(aqi);
-
     index.innerHTML = "AQI: " + aqi ;
 
     setIndexStatus(aqi);
