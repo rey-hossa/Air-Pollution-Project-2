@@ -19,7 +19,7 @@ async function aqiChecker() {
     //const data = await response.json();
     const results = await axios.get("/.netlify/functions/lambda?city="+city);
     let aqi = results.data.data.aqi;
-    console.log(aqi);
+    //console.log(aqi);
 
     if(aqi == undefined){
       index.innerHTML = "The city you entered doesn't exist!" ;
@@ -32,16 +32,37 @@ async function aqiChecker() {
     let longitude = results.data.data.city.geo[1];
     map.setView([latitude, longitude], 11);
 
+    setIndexStatus(aqi);
+
+  } catch (err){
+    console.error(err.message);
+    status.style.display = "none";
+    info.style.display = "none";
+    index.innerHTML = "The city you entered doesn't exist!" ;
+  }
+
+}
+
+//Search with user position
+async function setCurrentPostion(position){
+  try{
+    //console.log(position);
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+
+    map.setView([lat, lon], 11);
+
+    const results = await axios.get("/.netlify/functions/lambdaGeo?latitude=" + lat + "&longitude" + lon);
+    let aqi = results.data.data.aqi;
+
+    index.innerHTML = "AQI: " + aqi ;
 
     setIndexStatus(aqi);
 
-} catch (err){
-  console.error(err.message);
-  index.innerHTML = "The city you entered doesn't exist!" ;
+  } catch (err){
+    console.error(err.message);
+  }
 }
-
-}
-
 
 //set the status
 function  setIndexStatus(aqi){
@@ -98,6 +119,8 @@ let map_section = document.getElementById('map');
 let heathImplications = document.getElementById('heathImplications');
 let cautionaryStatement = document.getElementById('cautionaryStatement');
 
+//Search with user position
+navigator.geolocation.getCurrentPosition(setCurrentPostion);
 
 enter.addEventListener("click", aqiChecker );
 search.addEventListener("keyup", function(input){
