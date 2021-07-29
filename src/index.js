@@ -52,7 +52,7 @@ async function setCurrentPostion(position){
 
     map.setView([lat, lon], 11);
 
-    const results = await axios.get("/.netlify/functions/lambdaGeo?latitude=" + lat + "&longitude" + lon);
+    const results = await axios.get("/.netlify/functions/lambdaGeo?latitude=" + lat + "&longitude=" + lon);
     let aqi = results.data.data.aqi;
 
     console.log(results);
