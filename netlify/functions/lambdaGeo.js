@@ -10,7 +10,6 @@ exports.handler = async function (event, context) {
 
   const { data } = await axios.get(uri);
 
-
   return {
     statusCode: 200,
     body: JSON.stringify(data)

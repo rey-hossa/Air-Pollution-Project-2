@@ -5,6 +5,7 @@ import './style.css';
 async function aqiChecker(){
   try{
 
+    // Fetch api with city
     let city = document.getElementById("search").value;
     let uri = "https://api.waqi.info/feed/" + city + "/?token=" + apiKey;
 
@@ -36,13 +37,16 @@ async function setCurrentPostion(position){
     //console.log(position);
     map.setView([position.coords.latitude, position.coords.longitude], 11);
 
+    // Fetch api with coordinates
     let uri2 = "https://api.waqi.info/feed/geo:"+ position.coords.latitude + ";" + position.coords.longitude +"/?token=" + apiKey;
+
     const res2 = await fetch(uri2);
     const resJson2 = await res2.json();
     const aqi2 = resJson2.data.aqi;
+
     index.innerHTML = "AQI: " + aqi2 ;
 
-     setIndexStatus(aqi2);
+    setIndexStatus(aqi2);
 
   } catch (err){
     console.error(err.message);

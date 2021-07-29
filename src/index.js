@@ -10,6 +10,8 @@ async function aqiChecker() {
 
     //const response = await fetch("/.netlify/functions/lambda");
     //const data = await response.json();
+
+    //Fetch lambda function with city in Axios
     const results = await axios.get("/.netlify/functions/lambda?city="+city);
     let aqi = results.data.data.aqi;
     //console.log(aqi);
@@ -45,6 +47,7 @@ async function setCurrentPostion(position){
 
     map.setView([lat, lon], 11);
 
+    // Fetch lambda function with coordinates in Axios
     const results = await axios.get("/.netlify/functions/lambdaGeo?latitude=" + lat + "&longitude=" + lon);
     let aqi = results.data.data.aqi;
 
