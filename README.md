@@ -1,3 +1,3 @@
 # Air Pollution Project
 
-![Alt text](dist/images/counter.JPG "image")
+![Alt text](dist/images/image.JPG "image")
