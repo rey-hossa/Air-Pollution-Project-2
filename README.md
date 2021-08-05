@@ -11,12 +11,16 @@ To Starting using this Application, go to https://air-pollution-project.netlify.
 ## Tools Used
 
 Node npm
+
 Webpack
+
 Netlify
+
 
 ## Usage
 
 The usege is very simple, enter the name of a city and it will appear the air pollution index, you can see more information by dragging the mouse cursor on the "i" button.
+
 Or you can allow geolocation when the page is loaded, then it will show you the air pollution index automatically for your position.
 
 ## Contact
